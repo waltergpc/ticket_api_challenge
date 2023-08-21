@@ -38,3 +38,21 @@ the instructions.
 - Then run the command:
 
 `npm start`
+
+### Endpoints
+
+First endpoint will be a POST with a route of `api/v1/receipts/process`, this endpoint will process
+a json payload provided in the body with a schema as following:
+
+`{
+  "retailer": string,
+  "purchaseDate": string, format should be YYYY-MM-DD,
+    "purchaseTime": string, format should be HH:MM,
+    "total": string, format should be interger followed by two decimals,
+    "items": [
+        {"shortDescription": string, string, format should be interger followed by two decimals},
+    ]
+}`
+
+Second endpoint will be a GET request with path `receipts/{id}/points`, where the {id} needs to be a required string
+with uuid format
