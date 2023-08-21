@@ -4,6 +4,12 @@ This repo will deploy thew ticket processor challenge for the fetch backend posi
 This app was developed using Node JS and express JS. In order to run this repository you
 can do it through the docker image or directly using node JS
 
+## .env file
+
+Set up a .env file the the variables specified in the .env.example file, in case port variable is
+changed, make sure to adjust the -p flag int the docker commands, try to follow ports documented
+in the dockerfile and the example.env
+
 ## Docker Setup
 
 Docker installation is needed to proceed. In case you do not hace Docker please refer to
