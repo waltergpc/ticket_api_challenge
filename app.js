@@ -9,6 +9,9 @@ const cors = require('cors')
 const rateLimiter = require('express-rate-limit')
 const helmet = require('helmet')
 const xss = require('xss-clean')
+//middleware
+const notFoundMiddleware = require('./middleware/not-found')
+const errorHandlerMiddleware = require('./middleware/error-handler')
 
 const port = process.env.PORT || 5000
 
@@ -35,6 +38,9 @@ app.get('/', (req, res) => {
 })
 
 app.use('/api/v1/receipts', ticketRouter)
+
+app.use(notFoundMiddleware)
+app.use(errorHandlerMiddleware)
 
 const start = async () => {
 	try {
