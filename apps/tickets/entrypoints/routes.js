@@ -1,10 +1,13 @@
 const express = require('express')
 const router = express.Router()
 const { getTicketId, postNewTicket } = require('./api')
-const { validateReceiptSchema } = require('../dto/validation')
+const {
+	validateReceiptSchema,
+	validateRouteParams
+} = require('../dto/validation')
 
 router.route('/process').post(validateReceiptSchema, postNewTicket)
 
-router.route('/:id/points').get(getTicketId)
+router.route('/:id/points').get(validateRouteParams, getTicketId)
 
 module.exports = router

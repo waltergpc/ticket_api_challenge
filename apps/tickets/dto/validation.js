@@ -47,4 +47,28 @@ const validateReceiptSchema = (req, res, next) => {
 	}
 }
 
-module.exports = { validateReceiptSchema }
+const validateRouteParams = (req, res, next) => {
+	const schema = Joi.string().required()
+	const { id } = req.params
+
+	const { error } = schema.validate(id)
+
+	if (error) {
+		let addedMessage = ''
+		if (
+			error.details &&
+			Array.isArray(error.details) &&
+			error.details.length > 0
+		) {
+			addedMessage = error.details[0].message
+		}
+		// on fail return comma separated errors
+		throw new BadRequestError(
+			`Route parameters doesn't comply, ${addedMessage}`
+		)
+	} else {
+		next()
+	}
+}
+
+module.exports = { validateReceiptSchema, validateRouteParams }
