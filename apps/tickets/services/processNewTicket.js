@@ -30,11 +30,11 @@ const checkForEveryTwoItems = (itemsArray) => {
 }
 
 const lookIfDateIsOdd = (purchaseDate) => {
-	//check if date is odd number and add 6 points if number is odd
+	//check if date is odd number and add 6 points if number is odd, Joi validation is returning JS
+	// Date timestamp
 	let points = 0
-	const dateNumbers = purchaseDate.split('-')
-	const day = Number(dateNumbers[2])
-	if (day % 2 !== 0) {
+	let date = purchaseDate.getUTCDate()
+	if (date % 2 !== 0) {
 		points = 6
 	}
 	return points
