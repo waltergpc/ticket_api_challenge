@@ -37,7 +37,7 @@ the instructions.
 
 - Then run the command:
 
-`npm start`
+`npm i && npm start`
 
 ### Endpoints
 
