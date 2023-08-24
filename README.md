@@ -56,3 +56,13 @@ a json payload provided in the body with a schema as following:
 
 Second endpoint will be a GET request with path `receipts/{id}/points`, where the {id} needs to be a required string
 with uuid format
+
+### Testing
+
+In order to run tests locally, node and npm should be installed, please refer to the upper part of the documentation
+to install.
+
+Once installed, install and run repository locally using npm commands as stated above, once accomplished, you
+can run the next command to run tests:
+
+`npm run test`

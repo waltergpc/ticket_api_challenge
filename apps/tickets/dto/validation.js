@@ -75,6 +75,9 @@ const validateRouteParams = (req, res, next) => {
 			error.details.length > 0
 		) {
 			addedMessage = error.details[0].message
+			if (error.details[0].message.includes('"value" must be a valid GUID')) {
+				addedMessage = 'id route param should be a valid GUID'
+			}
 		}
 		// on fail return comma separated errors
 		throw new BadRequestError(

@@ -23,7 +23,7 @@ const postNewTicket = (req, res) => {
 	const ticket = req.body
 	const ticketIdWithPoints = processNewTicket(ticket)
 	ticketIdsMap[ticketIdWithPoints.id] = ticketIdWithPoints.totalPoints
-	res.status(StatusCodes.OK).json({ id: ticketIdWithPoints.id })
+	res.status(StatusCodes.CREATED).json({ id: ticketIdWithPoints.id })
 }
 
 module.exports = { getTicketId, postNewTicket }
